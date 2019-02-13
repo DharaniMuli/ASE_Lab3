@@ -1,0 +1,5 @@
+<label>Search:</label>
+<input type="text" name="foodItem" [(ngModel)]="foodItem"/>
+<br>
+<button (click)="getNutriFacts()" >Search</button>
+{{nutritionFacts.hits[0].fields.nf_serving_size_unit}}
