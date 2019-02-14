@@ -7,29 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-public firstname;
-public lastname;
-public username;
-public password;
-
-public counter: number;
-  constructor() { }
+  public counter: number;
+  public user;
+  constructor() {
+    this.resetuser();
+  }
+  resetuser() {
+    this.user = {
+      'firstname': '',
+      'lastname': '',
+      'username': '',
+      'password': ''
+    };
+  }
 
   ngOnInit() {
   }
 
-  storeLocally = () => {
+  registerUser = () => {
 
-    let user = {
-      "firstname": this.firstname,
-      "lastname": this.lastname,
-      "username": this.username,
-      "password": this.password
+    let userInfo = {
+      "firstname": this.user.firstname,
+      "lastname": this.user.lastname,
+      "username": this.user.username,
+      "password": this.user.password
     }
     // localStorage supported
     if (window.localStorage) {
 
-      localStorage.setItem(user.username, JSON.stringify(user));
+      localStorage.setItem(userInfo.username, JSON.stringify(userInfo));
+      this.resetuser();
     }
 
   }
