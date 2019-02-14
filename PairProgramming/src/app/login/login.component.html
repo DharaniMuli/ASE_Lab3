@@ -1,12 +1,23 @@
+<div class="row">
+<div class="col-lg-7">
+  <img src="../../assets/Images/5.png" class="backgroundimagesize" />
+</div>
 
-<form>
-  <label>Email ID :</label>
-  <input type="emailid" name="emailid" [(ngModel)]="emailid"/>
-  <br>
-  <label>Password :</label>
-  <input type="password" name="password" [(ngModel)]="password"/>
-  <br>
-   <button type="button" (click)="userLogin()">Login</button>
-</form>
+<div class="col-lg-4 setmargin">
+
+  <form class="boxstyle">
+    <label class="textstyle">Email ID :</label>
+    <input type="emailid" name="emailid" [(ngModel)]="emailid"/>
+    <br>
+    <label class="textstyle">Password :</label>
+    <input type="password" name="password" [(ngModel)]="password"/>
+    <br>
+    <button type="button" class="btn btn-info btn-sm" (click)="userLogin()">Login</button>
+    <br>
+     <a routerLink="/register" class="textstyle">New user? Register!!</a>
+  </form>
+
+</div>
+</div>
 
 

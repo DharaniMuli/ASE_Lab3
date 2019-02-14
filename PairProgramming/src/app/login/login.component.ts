@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     var user =  localStorage.getItem(this.emailid);
     if (user!= null){
       user= JSON.parse(user);
+      // @ts-ignore
       if(this.password == user.password){
         this.router.navigate(['/', 'home']);
       }

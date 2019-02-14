@@ -8,8 +8,5 @@ export class TexttospeechserviceService {
 
   constructor(private http: HttpClientModule) { }
 
-  getTextToSpeechService () {
-    let url =
-  }
 
 }
