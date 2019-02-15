@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {NutritionserviceService} from '../nutritionservice.service';
-import {TexttospeechserviceService} from '../texttospeechservice.service';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +13,8 @@ export class HomeComponent implements OnInit {
   public displayNutriFacts = false;
   public textToSpeechURL;
 
-  constructor(public nutriService:NutritionserviceService, texttospeech:TexttospeechserviceService) {
-
+  constructor(public nutriService:NutritionserviceService) {
     this.setBodyStyles();
-
   }
 
   ngOnInit() {

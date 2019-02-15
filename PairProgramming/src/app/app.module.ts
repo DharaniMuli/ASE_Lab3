@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import {NutritionserviceService} from './nutritionservice.service';
-import {TexttospeechserviceService} from './texttospeechservice.service';
 import {importType} from '@angular/compiler/src/output/output_ast';
 import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -27,7 +26,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NgbModule
   ],
-  providers: [NutritionserviceService , TexttospeechserviceService],
+  providers: [NutritionserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

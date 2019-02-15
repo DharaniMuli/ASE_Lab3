@@ -10,6 +10,8 @@ export class LoginComponent implements OnInit {
 
   public emailid;
   public password: string;
+  public InvalidUser = false;
+
   constructor(private router: Router) {
     this.setBodyStyles();
   }
@@ -24,9 +26,10 @@ export class LoginComponent implements OnInit {
     if (user != null) {
       user = JSON.parse(user);
       // @ts-ignore
-      if (this.password === user.password){
+      if (this.password === user.password) {
         this.router.navigate(['/', 'home']);
       }
     }
+    this.InvalidUser = true;
   }
 }

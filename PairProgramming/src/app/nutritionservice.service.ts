@@ -10,7 +10,6 @@ export class NutritionserviceService {
 
   getNutritionService (search) {
     let url = 'https://api.nutritionix.com/v1_1/search/'+ search + '?results=0:1&fields=*&appId=3f5fd639&appKey=94d28f887c5cf3e3d3ea1cdc34fc83d1';
-    console.log(url);
     return this.http.get(url);
   }
 
