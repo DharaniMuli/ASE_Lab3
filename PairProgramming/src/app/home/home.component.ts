@@ -11,16 +11,32 @@ export class HomeComponent implements OnInit {
 
   public foodItem;
   public nutritionFacts;
+  public displayNutriFacts = false;
+  public textToSpeechURL;
 
-  constructor(public nutriService:NutritionserviceService, texttospeech:TexttospeechserviceService) { }
+  constructor(public nutriService:NutritionserviceService, texttospeech:TexttospeechserviceService) {
+
+    this.setBodyStyles();
+
+  }
 
   ngOnInit() {
   }
-  getNutriFacts () {
 
-    this.nutriService.getNutritionService(this.foodItem).subscribe(data=>{
-      this.nutritionFacts=data;
+  setBodyStyles() {
+    document.getElementById('bodyId').classList.remove("other-style");
+    document.getElementById('bodyId').classList.add("home-style");
+  }
+  getNutriFacts() {
+    this.textToSpeechURL = 'http://api.voicerss.org/?key=1a24f04fb685456ca63aef0491db1ffb&hl=en-us&src=you entered '+this.foodItem;
+    this.nutriService.getNutritionService(this.foodItem).subscribe(data => {
+      this.displayNutriFacts = true;
+      this.nutritionFacts = data;
     });
-
+  }
+  onSearchChange(val) {
+    if (this.displayNutriFacts) {
+      val === '' ?  this.displayNutriFacts = false : this.displayNutriFacts = true;
+    }
   }
 }

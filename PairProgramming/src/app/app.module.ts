@@ -10,6 +10,8 @@ import {NutritionserviceService} from './nutritionservice.service';
 import {TexttospeechserviceService} from './texttospeechservice.service';
 import {importType} from '@angular/compiler/src/output/output_ast';
 import {HttpClientModule} from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [NutritionserviceService , TexttospeechserviceService],
   bootstrap: [AppComponent]

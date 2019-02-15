@@ -1,5 +1,33 @@
-<label>Search:</label>
-<input type="text" name="foodItem" [(ngModel)]="foodItem"/>
-<br>
-<button (click)="getNutriFacts()" >Search</button>
-{{nutritionFacts.hits[0].fields.nf_serving_size_unit}}
+<div class="register-link-parent float-right logoutstyle">
+  <a routerLink="/" class="register-link">Logout</a>
+</div>
+
+<form>
+    <div class="row searchflex">
+      <div class="form-group col-lg-7 col-md-6">
+        <input class="form-control form-control-md" placeholder="Search for any food Item"
+               autocomplete="off"
+               type="text"
+               name="foodItem"
+               [(ngModel)]="foodItem"
+               (input)="onSearchChange($event.target.value)"/>
+      </div>
+      <div class="form-group col-3">
+        <button class="btn btn-success" (click)="getNutriFacts()" >Search</button>
+      </div>
+    </div>
+  </form>
+
+<div class="row searchflex" *ngIf="displayNutriFacts">
+    <div class="col-4">
+      <span class="blockquote">No. of Calories : {{nutritionFacts.hits[0].fields.nf_calories}}</span>
+    </div>
+    <div class="col-4">
+      <span class="blockquote">Weight in grams: {{nutritionFacts.hits[0].fields.nf_serving_weight_grams}} </span>
+    </div>
+    <div style="visibility: hidden">
+      <audio controls autoplay="on">
+        <source [src]="textToSpeechURL" type="audio/ogg" >
+      </audio>
+    </div>
+  </div>

@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
   public user;
   constructor() {
     this.resetuser();
+    this.setBodyStyles();
   }
   resetuser() {
     this.user = {
@@ -20,12 +21,13 @@ export class RegisterComponent implements OnInit {
       'password': ''
     };
   }
-
   ngOnInit() {
   }
-
+  setBodyStyles() {
+    document.getElementById('bodyId').classList.add("other-style");
+    document.getElementById('bodyId').classList.remove("home-style");
+  }
   registerUser = () => {
-
     let userInfo = {
       "firstname": this.user.firstname,
       "lastname": this.user.lastname,
@@ -34,7 +36,6 @@ export class RegisterComponent implements OnInit {
     }
     // localStorage supported
     if (window.localStorage) {
-
       localStorage.setItem(userInfo.username, JSON.stringify(userInfo));
       this.resetuser();
     }
